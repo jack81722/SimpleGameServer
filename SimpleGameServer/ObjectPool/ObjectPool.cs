@@ -73,7 +73,8 @@ public abstract class ObjectPool<T>
 
     public virtual void Recycle(T item)
     {
-        storage.Add(item);
+        if(!storage.Contains(item))
+            storage.Add(item);
         RecycleHandler(item);
     }
 
